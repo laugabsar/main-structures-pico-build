@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Building2, Wrench, Hammer, HomeIcon, Factory, Route, ArrowRight, Star } from 'lucide-react';
+import { Building2, Wrench, Hammer, HomeIcon, Factory, Route, ArrowRight, Star, Zap, Shield } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -9,92 +9,96 @@ const Services = () => {
     {
       icon: Building2,
       title: 'Commercial Construction',
-      description: 'From office buildings to retail spaces, we deliver commercial projects that meet your business needs and timeline.',
+      description: 'Modern office buildings, retail spaces, and commercial developments that drive business success.',
       features: ['Office Buildings', 'Retail Spaces', 'Warehouses', 'Mixed-Use Developments'],
-      popular: true
+      popular: true,
+      color: 'from-blue-500 to-blue-600'
     },
     {
       icon: HomeIcon,
       title: 'Residential Construction',
-      description: 'Custom homes and residential developments built with quality craftsmanship and attention to detail.',
+      description: 'Custom homes and residential developments crafted with precision and attention to detail.',
       features: ['Custom Homes', 'Renovations', 'Additions', 'Multi-Family Housing'],
-      popular: false
+      popular: false,
+      color: 'from-green-500 to-green-600'
     },
     {
       icon: Factory,
       title: 'Industrial Projects',
-      description: 'Heavy-duty industrial construction for manufacturing facilities, plants, and specialized structures.',
+      description: 'Heavy-duty industrial construction for manufacturing facilities and specialized structures.',
       features: ['Manufacturing Plants', 'Processing Facilities', 'Storage Solutions', 'Heavy Industry'],
-      popular: false
+      popular: false,
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: Route,
       title: 'Infrastructure',
-      description: 'Critical infrastructure projects including roads, bridges, and utility systems that serve communities.',
+      description: 'Critical infrastructure projects that connect communities and support economic growth.',
       features: ['Road Construction', 'Bridge Building', 'Utility Systems', 'Site Development'],
-      popular: true
+      popular: true,
+      color: 'from-purple-500 to-purple-600'
     },
     {
       icon: Wrench,
       title: 'Engineering Services',
-      description: 'Comprehensive engineering solutions from design to implementation with cutting-edge technology.',
+      description: 'Comprehensive engineering solutions from concept to completion with innovative technology.',
       features: ['Structural Design', 'Project Planning', 'Site Analysis', 'Technical Consulting'],
-      popular: false
+      popular: false,
+      color: 'from-red-500 to-red-600'
     },
     {
       icon: Hammer,
       title: 'Renovation & Remodeling',
-      description: 'Transform existing spaces with our renovation expertise, breathing new life into old structures.',
+      description: 'Transform existing spaces with expert renovation services that breathe new life into structures.',
       features: ['Building Restoration', 'Interior Remodeling', 'Structural Upgrades', 'Modernization'],
-      popular: false
+      popular: false,
+      color: 'from-teal-500 to-teal-600'
     }
   ];
 
   return (
-    <section id="services" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-0 left-0 w-72 h-72 construction-gradient rounded-full opacity-5 -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 construction-gradient rounded-full opacity-5 translate-x-1/2 translate-y-1/2"></div>
+    <section id="services" className="section-padding bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 line-pattern"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Enhanced Header */}
+        {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 construction-gradient text-transparent bg-clip-text font-semibold text-lg mb-4">
-            <Star size={20} className="text-orange-500" />
+          <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <Zap size={16} />
             <span>COMPREHENSIVE SERVICES</span>
-            <Star size={20} className="text-blue-500" />
           </div>
-          <h2 className="text-5xl font-bold text-slate-800 mb-6">Our Construction Services</h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <h2 className="heading-secondary text-foreground mb-6">Our Construction Services</h2>
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             From concept to completion, we provide comprehensive construction and engineering services 
             tailored to meet your specific project requirements with unmatched quality and precision.
           </p>
         </div>
 
-        {/* Enhanced Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {services.map((service, index) => (
             <Card 
               key={service.title} 
-              className={`group card-hover animate-fade-in-up relative overflow-hidden ${
-                service.popular ? 'ring-2 ring-orange-400/50' : ''
+              className={`group card-hover relative overflow-hidden border-0 shadow-lg ${
+                service.popular ? 'ring-2 ring-primary/20' : ''
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {service.popular && (
-                <div className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full transform rotate-12">
+                <div className="absolute -top-2 -right-2 bg-gradient-to-r from-primary to-accent text-white text-xs font-bold px-3 py-1 rounded-full transform rotate-12 shadow-lg">
                   POPULAR
                 </div>
               )}
               
               <CardHeader className="pb-4">
-                <div className="w-20 h-20 construction-gradient rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <service.icon className="text-white" size={32} />
+                <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
+                  <service.icon className="text-white" size={28} />
                 </div>
-                <CardTitle className="text-xl text-slate-800 group-hover:text-blue-600 transition-colors">
+                <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
                   {service.title}
                 </CardTitle>
-                <CardDescription className="text-gray-600">
+                <CardDescription className="text-muted-foreground leading-relaxed">
                   {service.description}
                 </CardDescription>
               </CardHeader>
@@ -102,8 +106,8 @@ const Services = () => {
               <CardContent className="pt-0">
                 <ul className="space-y-3 mb-6">
                   {service.features.map((feature) => (
-                    <li key={feature} className="flex items-center text-sm text-gray-700">
-                      <div className="w-2 h-2 construction-gradient rounded-full mr-3 flex-shrink-0"></div>
+                    <li key={feature} className="flex items-center text-sm text-foreground">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -111,7 +115,7 @@ const Services = () => {
                 
                 <Button 
                   variant="outline" 
-                  className="w-full group-hover:construction-gradient group-hover:text-white group-hover:border-transparent transition-all"
+                  className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all"
                 >
                   Learn More
                   <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -121,31 +125,31 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Enhanced CTA Section */}
+        {/* CTA Section */}
         <div className="text-center">
-          <div className="bg-gradient-to-r from-blue-600 to-orange-500 rounded-3xl p-12 shadow-2xl max-w-5xl mx-auto text-white relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-4 left-4 w-8 h-8 border-2 border-white rounded-full"></div>
-              <div className="absolute top-8 right-8 w-6 h-6 border-2 border-white rounded-lg rotate-45"></div>
-              <div className="absolute bottom-6 left-12 w-4 h-4 bg-white rounded-full"></div>
-              <div className="absolute bottom-8 right-16 w-5 h-5 border-2 border-white rounded-full"></div>
-            </div>
+          <div className="gradient-primary rounded-3xl p-12 shadow-2xl max-w-5xl mx-auto text-white relative overflow-hidden">
+            {/* Decorative Elements */}
+            <div className="absolute top-6 left-6 w-8 h-8 border-2 border-white/30 rounded-full"></div>
+            <div className="absolute top-8 right-8 w-6 h-6 border-2 border-white/30 rounded-lg rotate-45"></div>
+            <div className="absolute bottom-8 left-12 w-4 h-4 bg-white/30 rounded-full"></div>
             
             <div className="relative z-10">
-              <h3 className="text-3xl font-bold mb-4">Need a Custom Solution?</h3>
-              <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
+              <div className="flex items-center justify-center space-x-2 mb-4">
+                <Shield size={24} />
+                <h3 className="text-3xl font-bold">Need a Custom Solution?</h3>
+              </div>
+              <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed">
                 Every project is unique. Let's discuss your specific requirements and create a tailored solution 
                 that exceeds your expectations and delivers exceptional results.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8">
+                <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-semibold px-8 shadow-lg">
                   Schedule Free Consultation
                 </Button>
                 <div className="flex items-center space-x-3 text-white/90">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-sm">Available 24/7 • (555) 123-4567</span>
+                  <span className="text-sm font-medium">Available 24/7 • (555) 123-4567</span>
                 </div>
               </div>
             </div>
