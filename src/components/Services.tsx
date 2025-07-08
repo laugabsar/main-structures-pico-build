@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Building2, Wrench, Hammer, HomeIcon, Factory, Road } from 'lucide-react';
+import { Building2, Wrench, Hammer, HomeIcon, Factory, Route } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 const Services = () => {
@@ -24,7 +23,7 @@ const Services = () => {
       features: ['Manufacturing Plants', 'Processing Facilities', 'Storage Solutions', 'Heavy Industry']
     },
     {
-      icon: Road,
+      icon: Route,
       title: 'Infrastructure',
       description: 'Critical infrastructure projects including roads, bridges, and utility systems that serve communities.',
       features: ['Road Construction', 'Bridge Building', 'Utility Systems', 'Site Development']
